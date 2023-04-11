@@ -36,12 +36,12 @@ export default function Layout({ children }) {
             </span>
           </p>
           <ul className="hidden md:flex">
-            <li className="">Home</li>
-            <li>Men</li>
-            <li>Women</li>
-            <li>Kids</li>
-            <li>Beauty</li>
-            <li>Sports</li>
+            <li onClick={() => router.push('/')}>Home</li>
+            <li onClick={() => router.push('/collections/Men')}>Men</li>
+            <li onClick={() => router.push('/collections/Women')}>Women</li>
+            <li onClick={() => router.push('/collections/Kids')}>Kids</li>
+            <li onClick={() => router.push('/collections/Beauty')}>Beauty</li>
+            <li onClick={() => router.push('/collections/Sports')}>Sports</li>
           </ul>
           <div className="flex">
             <div className="mx-4 flex">
@@ -105,7 +105,7 @@ export default function Layout({ children }) {
                 className="text-3xl my-4"
                 onClick={() => {
                   router.push('/');
-                  // setShowCategoryMenu(false);
+                  setShowCategoryMenu(false);
                 }}
               >
                 Home
@@ -113,21 +113,53 @@ export default function Layout({ children }) {
               <li
                 className="text-3xl my-4"
                 onClick={() => {
-                  router.push('/men');
-                  // setShowCategoryMenu(false);
+                  router.push('/collections/Men');
+                  setShowCategoryMenu(false);
                 }}
               >
                 Men
               </li>
-              <li className="text-3xl my-4">Women</li>
-              <li className="text-3xl my-4">Kids</li>
-              <li className="text-3xl my-4">Beauty</li>
-              <li className="text-3xl my-4">Sports</li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/collections/Women');
+                  setShowCategoryMenu(false);
+                }}
+              >
+                Women
+              </li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/collections/Kids');
+                  setShowCategoryMenu(false);
+                }}
+              >
+                Kids
+              </li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/collections/Beauty');
+                  setShowCategoryMenu(false);
+                }}
+              >
+                Beauty
+              </li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/collections/Sports');
+                  setShowCategoryMenu(false);
+                }}
+              >
+                Sports
+              </li>
             </ul>
           </div>
         </div>
       )}
-      <div className="w-full pt-20">{children}</div>
+      <div className="w-full pt-20 min-h-[92vh]">{children}</div>
       <footer className="min-h-[50px] bg-gray-200 w-full flex justify-center items-center mt-5">
         <p>Copyright @ Nikhil Dev A S 2023</p>
       </footer>
