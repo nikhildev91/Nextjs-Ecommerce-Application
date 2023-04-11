@@ -45,7 +45,10 @@ export default function Layout({ children }) {
           </ul>
           <div className="flex">
             <div className="mx-4 flex">
-              <AiOutlineHeart className="text-3xl cursor-pointer hidden md:flex" />
+              <AiOutlineHeart
+                className="text-3xl cursor-pointer hidden md:flex"
+                onClick={() => router.push('/wishlist')}
+              />
               <span className="text-white text-[12px] hidden md:flex bg-blue-500 p-1 h-4 min-w-4 rounded-full ml-[-10px]  justify-center items-center">
                 11
               </span>
@@ -84,7 +87,10 @@ export default function Layout({ children }) {
               >
                 <AiOutlineShoppingCart className="mr-4" /> Cart
               </li>
-              <li className="w-full p-4 flex text-lg items-center float-left">
+              <li
+                className="w-full p-4 flex text-lg items-center float-left"
+                onClick={() => router.push('/wishlist')}
+              >
                 <AiOutlineHeart className="mr-4" /> Wishlist
               </li>
               <li className="w-full p-4 flex text-lg items-center float-left">

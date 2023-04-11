@@ -2,8 +2,10 @@ import React from 'react';
 import Layout from './components/Layout';
 import { AiOutlineBgColors } from 'react-icons/ai';
 import { RxSize } from 'react-icons/rx';
+import { useRouter } from 'next/router';
 
 export default function Cart() {
+  const router = useRouter();
   return (
     <Layout>
       <div className="container m-auto mt-10 p-3 md:p-0">
@@ -255,7 +257,10 @@ export default function Cart() {
               </div>
 
               <div className="mt-10 flex justify-center">
-                <button className="bg-black text-sm text-white p-3 w-full lg:p-5 lg:w-[50%] rounded-full lg:text-xl">
+                <button
+                  onClick={() => router.push('/checkout')}
+                  className="bg-black text-sm text-white p-3 w-full lg:p-5 lg:w-[50%] rounded-full lg:text-xl"
+                >
                   Checkout
                 </button>
               </div>
