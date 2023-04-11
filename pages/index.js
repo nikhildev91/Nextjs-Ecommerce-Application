@@ -34,12 +34,12 @@ export default function Home() {
           <div className="w-full h-20 flex items-center justify-center mt-10">
             <p className="font-bold text-5xl">Start Exploring.</p>
           </div>
-          <div className="flex items-center justify-center">
+          {/* <div className="flex items-center justify-center">
             <div className="w-[50%] h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
               <div className="flex justify-between">
-                {/* <div className="px-10 h-12 flex items-center justify-center rounded-full hover:bg-black hover:text-white">
+                <div className="px-10 h-12 flex items-center justify-center rounded-full hover:bg-black hover:text-white">
                   Home
-                </div> */}
+                </div>
                 <div className="px-12 h-12 flex items-center justify-center rounded-full hover:bg-black hover:text-white">
                   Men
                 </div>
@@ -57,7 +57,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
     </Layout>
