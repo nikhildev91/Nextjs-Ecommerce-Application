@@ -50,7 +50,10 @@ export default function Layout({ children }) {
                 11
               </span>
             </div>
-            <AiOutlineShoppingCart className="text-3xl cursor-pointer hidden md:flex" />{' '}
+            <AiOutlineShoppingCart
+              className="text-3xl cursor-pointer hidden md:flex"
+              onClick={() => router.push('/cart')}
+            />{' '}
             <span className="text-white text-[12px] hidden md:flex bg-blue-500 p-1 h-4 min-w-4 rounded-full ml-[-10px]  justify-center items-center">
               11
             </span>
@@ -75,7 +78,10 @@ export default function Layout({ children }) {
                 <TbNotes className="mr-4" />
                 My Orders
               </li>
-              <li className="w-full p-4 flex text-lg items-center float-left">
+              <li
+                className="w-full p-4 flex text-lg items-center float-left"
+                onClick={() => router.push('/cart')}
+              >
                 <AiOutlineShoppingCart className="mr-4" /> Cart
               </li>
               <li className="w-full p-4 flex text-lg items-center float-left">

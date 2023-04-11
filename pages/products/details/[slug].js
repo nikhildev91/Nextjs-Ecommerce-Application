@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React, { use } from 'react';
 import { useRouter } from 'next/router';
@@ -163,12 +164,215 @@ export default function ProductDetails() {
           </u>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
-            <div className="w-full h-24 bg-gray-500">sdfsdf</div>
+            {/* comment contents  */}
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+            <div className="w-full min-h-24 p-3 hover:shadow-md">
+              <div className="flex justify-between">
+                <div className="flex">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt=""
+                    className="w-[60px] h-[60px] rounded-full"
+                  />
+                  <div className="ml-4">
+                    <p className="font-bold text-sm md:text-md">
+                      Customer Name
+                    </p>
+                    <p className="text-sm text-gray-400">Aug 12 2023</p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                  <AiFillStar className="text-lg md:text-2xl text-yellow-500" />
+                </div>
+              </div>
+              <p className="mt-3 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
           </div>
 
           <div className=" text-sm md:text-lg  mt-5 md:h-12 md:w-[20%] font-bold hover:bg-black hover:text-white text-black rounded-full p-5 flex items-center justify-center border border-gray-500">
