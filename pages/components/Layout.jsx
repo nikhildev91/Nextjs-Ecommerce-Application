@@ -10,7 +10,10 @@ import { BiLogOutCircle } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaTimes } from 'react-icons/fa';
 
+import { useRouter } from 'next/router';
+
 export default function Layout({ children }) {
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   return (
@@ -23,7 +26,10 @@ export default function Layout({ children }) {
               onClick={() => setShowCategoryMenu(true)}
             />
           </div>
-          <p className="text-3xl md:text-4xl font-bold text-blue-500 flex">
+          <p
+            className="text-3xl md:text-4xl font-bold text-blue-500 flex cursor-pointer"
+            onClick={() => router.push('/')}
+          >
             Flipcart{' '}
             <span>
               <AiOutlineShoppingCart className="text-xl" />
@@ -49,38 +55,44 @@ export default function Layout({ children }) {
               11
             </span>
             <VscAccount
-              className="text-3xl md:mx-4 cursor-pointer"
+              className="text-3xl md:mx-4 cursor-pointer dropMenu"
               onClick={() => setShowMenu(!showMenu)}
             />
           </div>
         </div>
       </div>
+
+      {/* menu  */}
       {showMenu && (
-        <div className="bg-gray-100 p-2 min-h-60 w-52 float-right mt-20 md:mr-[250px] rounded-xl shadow-md">
-          <ul>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <VscAccount className="mr-4" />
-              My Account
-            </li>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <TbNotes className="mr-4" />
-              My Orders
-            </li>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <AiOutlineShoppingCart className="mr-4" /> Cart
-            </li>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <AiOutlineHeart className="mr-4" /> Wishlist
-            </li>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <AiOutlineLogin className="mr-4" /> Login
-            </li>
-            <li className="w-full p-4 flex text-lg items-center float-left">
-              <BiLogOutCircle className="mr-4" /> Logout
-            </li>
-          </ul>
+        <div className="w-full flex justify-end">
+          <div className="bg-gray-100 p-2 min-h-60 w-52 md:mr-[250px] rounded-xl shadow-md float-right fixed top-20 z-10">
+            <ul>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <VscAccount className="mr-4" />
+                My Account
+              </li>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <TbNotes className="mr-4" />
+                My Orders
+              </li>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <AiOutlineShoppingCart className="mr-4" /> Cart
+              </li>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <AiOutlineHeart className="mr-4" /> Wishlist
+              </li>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <AiOutlineLogin className="mr-4" /> Login
+              </li>
+              <li className="w-full p-4 flex text-lg items-center float-left">
+                <BiLogOutCircle className="mr-4" /> Logout
+              </li>
+            </ul>
+          </div>
         </div>
       )}
+
+      {/* mobile menu */}
       {showCategoryMenu && (
         <div className="w-full h-screen z-20 fixed bg-white p-5">
           <FaTimes
@@ -89,8 +101,24 @@ export default function Layout({ children }) {
           />
           <div className="flex justify-center items-center h-screen">
             <ul>
-              <li className="text-3xl my-4">Home</li>
-              <li className="text-3xl my-4">Men</li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/');
+                  // setShowCategoryMenu(false);
+                }}
+              >
+                Home
+              </li>
+              <li
+                className="text-3xl my-4"
+                onClick={() => {
+                  router.push('/men');
+                  // setShowCategoryMenu(false);
+                }}
+              >
+                Men
+              </li>
               <li className="text-3xl my-4">Women</li>
               <li className="text-3xl my-4">Kids</li>
               <li className="text-3xl my-4">Beauty</li>
@@ -99,8 +127,8 @@ export default function Layout({ children }) {
           </div>
         </div>
       )}
-      <div className="w-full">{children}</div>
-      <footer className="min-h-[50px] bg-gray-200 w-full flex justify-center items-center">
+      <div className="w-full pt-20">{children}</div>
+      <footer className="min-h-[50px] bg-gray-200 w-full flex justify-center items-center mt-5">
         <p>Copyright @ Nikhil Dev A S 2023</p>
       </footer>
     </>

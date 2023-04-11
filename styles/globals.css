@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@600&display=swap');
-
 @layer base {
-  /* body {
-    @apply font-[Alkatra];
-  } */
   li {
     @apply px-4;
     @apply cursor-pointer;
@@ -15,9 +10,12 @@
   }
 }
 
-.ssh::-webkit-scrollbar {
+.removeHScroll::-webkit-scrollbar {
   width: 0;
 }
-div {
-  border: red 1px solid;
+
+.dropdown-menu {
+  display: block;
+  top: 10%;
+  position: fixed;
 }
