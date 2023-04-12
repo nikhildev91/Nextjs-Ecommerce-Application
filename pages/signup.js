@@ -1,7 +1,9 @@
 import React from 'react';
 import Layout from './components/Layout';
+import { useRouter } from 'next/router';
 
 export default function Signup() {
+  const router = useRouter();
   return (
     <Layout>
       <div className="container h-[60vh] m-auto flex justify-center items-center mt-16 p-5 md:p-0">
@@ -40,14 +42,19 @@ export default function Signup() {
             Continue
           </button>
 
-          <p className="flex w-full justify-center mt-5">
+          <div className="flex w-full justify-center mt-5">
             <span>Already</span>&nbsp;
             <span>have</span>&nbsp;
             <span>an</span>&nbsp;
             <span>account?</span> &nbsp; &nbsp;{' '}
-            <span className="text-green-500">Sign</span>&nbsp;
-            <span className="text-green-500">In</span>
-          </p>
+            <div
+              className="flex cursor-pointer"
+              onClick={router.push('/login')}
+            >
+              <span className="text-green-500">Sign</span>&nbsp;
+              <span className="text-green-500">In</span>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
