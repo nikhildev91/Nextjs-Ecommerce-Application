@@ -20,7 +20,7 @@ export default function CheckoutPage() {
         <hr className="w-full mt-5" />
         <div className="mt-10">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="border-r-2 lg:pr-10">
+            <div className="lg:border-r-2 lg:pr-10">
               <div className="lg:h-20 w-full border-2 rounded-xl p-5 flex justify-between items-center">
                 <p className="text-lg lg:text-xl font-bold">Contact Info</p>
                 <button
@@ -35,11 +35,39 @@ export default function CheckoutPage() {
                 </button>
               </div>
               {showContactEditPage && (
-                <div className="h-20 w-full border-2 rounded-xl p-5">
-                  <div className="flex justify-between items-center">
+                <div className="min-h-[10vh] w-full border-2 rounded-xl p-5">
+                  <div className="flex justify-between">
+                    <p className="font-bold text-sm md:text-lg flex md:flex-none">
+                      <span>Contact</span> &nbsp;<span>Information</span>
+                    </p>
+                    <p className="text-[10px] md:text-lg">
+                      Do not have an account?{' '}
+                      <span className="text-blue-400">Login</span>
+                    </p>
+                  </div>
+                  <div className="mt-5">
+                    <label htmlFor="">Your Phone Number</label> <br />
+                    <input
+                      type="text"
+                      className="p-3 rounded-full mt-2 border-2 w-full"
+                      placeholder="+91"
+                    />
+                  </div>
+                  <div className="mt-5">
+                    <label htmlFor="">Email Address</label> <br />
+                    <input
+                      type="text"
+                      className="p-3 rounded-full mt-2 border-2 w-full"
+                      placeholder="email@domain.com"
+                    />
+                  </div>
+                  <div className="flex justify-between items-center mt-5">
                     <button
                       className="text-sm bg-black p-3 lg:w-[400px] rounded-full text-white flex justify-center items-center"
-                      onClick={() => setShowContactEditPage(false)}
+                      onClick={() => {
+                        setShowContactEditPage(false);
+                        setShowShippingAddressEditPage(true);
+                      }}
                     >
                       Save and next to shipping
                     </button>
@@ -66,11 +94,84 @@ export default function CheckoutPage() {
                 </button>
               </div>
               {showShippingAddressEditPage && (
-                <div className="h-20 w-full border-2 rounded-xl p-5">
-                  <div className="flex justify-between items-center">
+                <div className="min-h-[10vh] w-full border-2 rounded-xl p-5">
+                  <div className="grid grid-cols-2 gap-1">
+                    <div>
+                      <label htmlFor="">First Name</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">Last Name</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">Address</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">City</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">State</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">Pincode</label> <br />
+                      <input
+                        type="text"
+                        className="p-3 rounded-full mt-2 border-2 w-full"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <label htmlFor="">Address Type</label> <br />
+                    <div className="mt-2 md:flex justify-between items-center">
+                      <div>
+                        <input
+                          type="radio"
+                          id="home"
+                          name="addresstype"
+                          value="home"
+                        />
+                        &nbsp; &nbsp;
+                        <label for="home">Home (All day Delivery)</label>
+                      </div>
+
+                      <div className="mt-2 md:mt-0">
+                        <input
+                          type="radio"
+                          id="louie"
+                          name="addresstype"
+                          value="louie"
+                        />{' '}
+                        &nbsp;&nbsp;
+                        <label for="louie">Office (Delivery 9AM - 5PM)</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center mt-5">
                     <button
                       className="text-sm bg-black p-3 lg:w-[400px] rounded-full text-white flex justify-center items-center"
-                      onClick={() => setShowShippingAddressEditPage(false)}
+                      onClick={() => {
+                        setShowShippingAddressEditPage(false);
+                        setShowPaymentMethodEditPage(true);
+                      }}
                     >
                       Save and next to payment
                     </button>
@@ -98,8 +199,23 @@ export default function CheckoutPage() {
                 </button>
               </div>
               {showPaymentMethodEditPage && (
-                <div className="h-20 w-full border-2 rounded-xl p-5">
-                  <div className="flex justify-between items-center">
+                <div className="min-h-[10vh] w-full border-2 rounded-xl p-5">
+                  <div>
+                    <input type="radio" name="paymentMethod" id="" /> &nbsp;
+                    &nbsp;
+                    <label htmlFor="">Cash on delivery</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="paymentMethod" id="" /> &nbsp;
+                    &nbsp;
+                    <label htmlFor="">PayPal</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="paymentMethod" id="" /> &nbsp;
+                    &nbsp;
+                    <label htmlFor="">Paytm</label>
+                  </div>
+                  <div className="flex justify-between items-center mt-5">
                     <button
                       className="text-sm bg-black p-3 lg:w-[400px] rounded-full text-white flex justify-center items-center"
                       onClick={() => setShowPaymentMethodEditPage(false)}
@@ -116,7 +232,7 @@ export default function CheckoutPage() {
                 </div>
               )}
             </div>
-            <div className="lg:pl-5">
+            <div className="lg:pl-5 mt-10 lg:mt-0">
               <p className="text-xl md:text-2xl font-bold">Order Summary</p>
               <div className="cartItem mt-5">
                 <div className="flex justify-between w-[100% ]">

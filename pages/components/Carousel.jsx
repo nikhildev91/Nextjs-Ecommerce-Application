@@ -4,8 +4,10 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 
 import { IoIosSearch } from 'react-icons/io';
+import { useRouter } from 'next/router';
 
 export default function Carousel() {
+  const router = useRouter();
   SwiperCore.use([Autoplay]);
   return (
     <>
@@ -28,7 +30,10 @@ export default function Carousel() {
                   Exclusive collection for everyone
                 </p>
 
-                <button className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full">
+                <button
+                  className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full"
+                  onClick={() => router.push('/search')}
+                >
                   Explore Now &nbsp; &nbsp;
                   <IoIosSearch className="text-xl" />
                 </button>
@@ -52,7 +57,10 @@ export default function Carousel() {
                   Exclusive collection for everyone
                 </p>
 
-                <button className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full">
+                <button
+                  className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full"
+                  onClick={() => router.push('/search')}
+                >
                   Explore Now &nbsp; &nbsp;
                   <IoIosSearch className="text-xl" />
                 </button>
@@ -73,7 +81,10 @@ export default function Carousel() {
                   Exclusive collection for everyone
                 </p>
 
-                <button className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full">
+                <button
+                  className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full"
+                  onClick={() => router.push('/search')}
+                >
                   Explore Now &nbsp; &nbsp;
                   <IoIosSearch className="text-xl" />
                 </button>
@@ -94,7 +105,10 @@ export default function Carousel() {
                   Exclusive collection for everyone
                 </p>
 
-                <button className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full">
+                <button
+                  className="p-5 bg-black text-white flex justify-center items-center mt-20 rounded-full"
+                  onClick={() => router.push('/search')}
+                >
                   Explore Now &nbsp; &nbsp;
                   <IoIosSearch className="text-xl" />
                 </button>

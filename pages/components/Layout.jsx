@@ -73,11 +73,17 @@ export default function Layout({ children }) {
         <div className="w-full flex justify-end">
           <div className="bg-gray-100 p-2 min-h-60 w-52 md:mr-[250px] rounded-xl shadow-md float-right fixed top-20 z-10">
             <ul>
-              <li className="w-full p-4 flex text-lg items-center float-left">
+              <li
+                className="w-full p-4 flex text-lg items-center float-left"
+                onClick={() => router.push('/account/account-info')}
+              >
                 <VscAccount className="mr-4" />
                 My Account
               </li>
-              <li className="w-full p-4 flex text-lg items-center float-left">
+              <li
+                className="w-full p-4 flex text-lg items-center float-left"
+                onClick={() => router.push('/account/my-order')}
+              >
                 <TbNotes className="mr-4" />
                 My Orders
               </li>
@@ -93,7 +99,10 @@ export default function Layout({ children }) {
               >
                 <AiOutlineHeart className="mr-4" /> Wishlist
               </li>
-              <li className="w-full p-4 flex text-lg items-center float-left">
+              <li
+                className="w-full p-4 flex text-lg items-center float-left"
+                onClick={() => router.push('/login')}
+              >
                 <AiOutlineLogin className="mr-4" /> Login
               </li>
               <li className="w-full p-4 flex text-lg items-center float-left">
