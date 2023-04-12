@@ -49,7 +49,9 @@ export default function Signup() {
             <span>account?</span> &nbsp; &nbsp;{' '}
             <div
               className="flex cursor-pointer"
-              onClick={router.push('/login')}
+              onClick={() => {
+                router.push('/login');
+              }}
             >
               <span className="text-green-500">Sign</span>&nbsp;
               <span className="text-green-500">In</span>
