@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from './components/Layout';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function Signup() {
   const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = async () => {
+    if (email && password && confirmPassword) {
+      if (password === confirmPassword) {
+        const user = await axios.post('/api/customer/register', {
+          email,
+          password,
+        });
+        if (user.data.id) {
+          router.push('/login');
+        }
+      } else {
+        toast.error('Not match Pasword and Confirm Password!.');
+      }
+    } else {
+      toast.error('All Fileds Required!.');
+    }
+  };
   return (
     <Layout>
       <div className="container h-[60vh] m-auto flex justify-center items-center mt-16 p-5 md:p-0">
@@ -19,6 +42,8 @@ export default function Signup() {
             type="email"
             className="border p-3 w-full mt-2 rounded-2xl"
             placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <div className="mt-5">
             <label htmlFor="">Password</label>
@@ -27,18 +52,25 @@ export default function Signup() {
               type="password"
               className="border p-3 w-full mt-2 rounded-2xl"
               placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mt-5">
             <label htmlFor="">Confirm Password</label>
             <br />
             <input
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               type="password"
               className="border p-3 w-full mt-2 rounded-2xl"
               placeholder="Enter Password"
             />
           </div>
-          <button className="w-full bg-black rounded-full text-white mt-5 p-3">
+          <button
+            className="w-full bg-black rounded-full text-white mt-5 p-3"
+            onClick={() => handleSubmit()}
+          >
             Continue
           </button>
 

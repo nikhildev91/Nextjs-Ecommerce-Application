@@ -22,7 +22,7 @@ export default function ProductDetails() {
               <div className="border-green-600 p-1 rounded-lg border-2 text-green-600 font-bold">
                 ₹ 300.00
               </div>
-              <div class="left-1/2 -ml-0.5 w-0.5 h-[20px] bg-gray-400"></div>
+              <div className="left-1/2 -ml-0.5 w-0.5 h-[20px] bg-gray-400"></div>
               <div>
                 <div className="flex text-gray-400 text-md items-center justify-center">
                   <AiFillStar className="text-lg text-yellow-500" /> &nbsp; 4.5
