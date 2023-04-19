@@ -4,6 +4,7 @@ import Carousel from './components/Carousel';
 import Itemcards from './components/Itemcards';
 import Layout from './components/Layout';
 import { BsArrowRight } from 'react-icons/bs';
+import { Apiurl } from './utils/url';
 
 function Home({ products }) {
   return (
@@ -201,7 +202,7 @@ function Home({ products }) {
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/customer/products`);
+  const res = await fetch(`${Apiurl}/api/customer/products`);
 
   if (res) {
     var products = await res.json();

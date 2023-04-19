@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Layout from '@/pages/components/Layout';
 import { AiFillStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Store } from '@/pages/utils/store';
+import { Apiurl } from '@/pages/utils/url';
 
 function ProductDetails({ product }) {
   const router = useRouter();
@@ -405,7 +406,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { params } = context;
   const res = await fetch(
-    `http://localhost:3000/api/customer/product-details/${params.slug}`
+    `${Apiurl}/api/customer/product-details/${params.slug}`
   );
   const data = await res.json();
 
