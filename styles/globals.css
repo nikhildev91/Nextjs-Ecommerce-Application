@@ -13,6 +13,14 @@
     @apply font-bold;
     @apply text-2xl;
   }
+
+  tr,
+  table,
+  td,
+  th {
+    @apply border-2;
+    @apply p-5;
+  }
 }
 
 .removeHScroll::-webkit-scrollbar {

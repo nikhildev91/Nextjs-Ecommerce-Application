@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
@@ -14,9 +14,14 @@ import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
+import { Store } from '../utils/store';
 
 export default function Layout({ children }) {
   const router = useRouter();
+
+  const { state, dispatch } = useContext(Store);
+
+  const { cart } = state;
 
   const { status, data: session } = useSession();
   const [showMenu, setShowMenu] = useState(false);
@@ -82,9 +87,11 @@ export default function Layout({ children }) {
               className="text-3xl cursor-pointer hidden md:flex"
               onClick={() => router.push('/cart')}
             />{' '}
-            <span className="text-white text-[12px] hidden md:flex bg-blue-500 p-1 h-4 min-w-4 rounded-full ml-[-10px]  justify-center items-center">
-              0
-            </span>
+            {cart.cartItems.length > 0 && (
+              <span className="text-white text-[12px] hidden md:flex bg-blue-500 p-1 h-4 min-w-4 rounded-full ml-[-10px]  justify-center items-center">
+                {cart.cartItems.reduce((a, c) => a + c.quatity, 0)}
+              </span>
+            )}
             <VscAccount
               className="text-3xl md:mx-4 cursor-pointer dropMenu"
               onClick={() => setShowMenu(!showMenu)}

@@ -5,12 +5,14 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error';
 import axios from 'axios';
+import { ImSpinner9 } from 'react-icons/im';
 
 export default function AddProjectScreen() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [name, setName] = useState('');
-
+  const [vendorId, setVendorId] = useState('');
+  const [loading, setLoading] = useState(false);
   // form data state
   const [productName, setProductName] = useState('');
   const [catchyDescription, setCatchyDescription] = useState('');
@@ -21,6 +23,7 @@ export default function AddProjectScreen() {
   const [price, setPrice] = useState('');
   const [sizeList, setSizeList] = useState([]);
   const [tags, setTags] = useState([]);
+  const [image, setImage] = useState('');
 
   useEffect(() => {
     if (session?.user) {
@@ -71,10 +74,67 @@ export default function AddProjectScreen() {
       if (res.error) {
         toast.error(res.error);
       } else {
+        setVendorId(res.data.id);
         setName(res.data.firstName);
       }
     } catch (err) {
       toast.error(getError(err));
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      if (image) {
+        setLoading(true);
+        const res = await axios.post('/api/vendor/add-product', {
+          vendorId,
+          productName,
+          catchyDescription,
+          description,
+          productDetails,
+          price,
+          sizes: sizeList,
+          tags,
+          totalStock,
+          color,
+          image,
+        });
+        if (res.error) {
+          toast.error(res.error);
+          setLoading(false);
+        } else {
+          if (res.status === 201) {
+            setLoading(false);
+            toast.success('Successfully Added Product');
+            router.push('/vendor/products');
+          }
+        }
+      } else {
+        toast.error(
+          'Not uploaded Image Wait until notification time completed then try!'
+        );
+        setLoading(false);
+      }
+    } catch (err) {
+      toast.error(getError(err));
+      setLoading(false);
+    }
+  };
+
+  const handleImage = async (e) => {
+    const formData = new FormData();
+    formData.append('file', e.target.files[0]);
+    formData.append('upload_preset', 'p9fs3b8z');
+
+    try {
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/dikpoctfq/image/upload',
+        formData
+      );
+      setImage(response.data.secure_url);
+      toast.success('Image Uploaded');
+    } catch (error) {
+      toast.error(getError(error));
     }
   };
   return (
@@ -166,33 +226,46 @@ export default function AddProjectScreen() {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-      </div>
-      <div className="m-0 p-0">
-        <label htmlFor="">Tags</label> <br />
-        <div className="tags-input-container border rounded-xl mt-2">
-          {tags.map((tag, index) => (
-            <div className="tag-item" key={index}>
-              <span className="text">{tag}</span>
-              <span className="close" onClick={() => removeTag(index)}>
-                &times;
-              </span>
-            </div>
-          ))}
+        <div className="m-0 p-0">
+          <label htmlFor="">Tags</label> <br />
+          <div className="tags-input-container border rounded-xl mt-2">
+            {tags.map((tag, index) => (
+              <div className="tag-item" key={index}>
+                <span className="text">{tag}</span>
+                <span className="close" onClick={() => removeTag(index)}>
+                  &times;
+                </span>
+              </div>
+            ))}
+            <input
+              onKeyDown={handleKeyDown}
+              type="text"
+              className="tags-input"
+              placeholder="Type Tags and Enter"
+            />
+          </div>
+          <span className="text-sm text-red-400 font-bold">
+            It will help your get rank on Search
+          </span>
+        </div>
+        <div>
+          <label htmlFor="">Image</label> <br />
           <input
-            onKeyDown={handleKeyDown}
-            type="text"
-            className="tags-input"
-            placeholder="Type Tags and Enter"
+            type="file"
+            className="p-3 border w-full rounded-xl
+          "
+            accept="image/*"
+            onChange={(e) => handleImage(e)}
           />
         </div>
-        <span className="text-sm text-red-400 font-bold">
-          It will help your get rank on Search
-        </span>
       </div>
 
       <div className="flex justify-between mt-5">
-        <button className="text-center p-3 hover:bg-black hover:text-white border rounded-2xl">
-          Add Product
+        <button
+          className="text-center p-3 hover:bg-black hover:text-white border rounded-2xl justify-center flex"
+          onClick={() => handleSubmit()}
+        >
+          {loading ? <ImSpinner9 className="animate-spin" /> : 'Add Product'}
         </button>
       </div>
     </Layout>

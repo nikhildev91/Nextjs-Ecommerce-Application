@@ -1,36 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import axios from 'axios';
 import Carousel from './components/Carousel';
 import Itemcards from './components/Itemcards';
 import Layout from './components/Layout';
 import { BsArrowRight } from 'react-icons/bs';
 
-export default function Home() {
+function Home({ products }) {
   return (
     <Layout>
       <Carousel />
-      <div className="container m-auto w-full">
+      <div className="container min-h-[10vh] m-auto w-full">
         <p className="text-4xl font-bold mt-10">New Arrivals.</p>
+        {/* <pre>{JSON.stringify(products, null, 4)}</pre> */}
         <div className=" w-full ml-2 md:ml-0 removeHScroll mt-5 flex flex-row overflow-x-auto gap-4">
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
+          {products &&
+            products.map((product, index) => {
+              return <Itemcards key={index} product={product} />;
+            })}
         </div>
         <section className="mt-5 min-h-screen w-full bg-gray-100 rounded-3xl p-10">
           <div className="w-full h-20 flex items-center justify-center mt-10">
@@ -200,26 +186,10 @@ export default function Home() {
           <span className="text-gray-400">Best selling of the month</span>
         </p>
         <div className=" w-full ml-2 md:ml-0 removeHScroll mt-10  md:mt-20 flex flex-row overflow-x-auto gap-4">
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
-          <Itemcards />
+          {products &&
+            products.map((product, index) => {
+              return <Itemcards key={index} product={product} />;
+            })}
         </div>
 
         <section className="w-full h-[70vh] rounded-3xl bg-yellow-100 mt-10"></section>
@@ -227,3 +197,18 @@ export default function Home() {
     </Layout>
   );
 }
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3000/api/customer/products`);
+
+  if (res) {
+    var products = await res.json();
+  }
+
+  // Pass data to the page via props
+  return { props: { products } };
+}
+
+export default Home;

@@ -22,7 +22,12 @@ export default function Layout({ children, name }) {
           <div className="flex lg:hidden">
             <GiHamburgerMenu />
           </div>
-          <p className="text-3xl font-bold">Vendor</p>
+          <p
+            className="text-3xl font-bold cursor-pointer"
+            onClick={() => router.push('/vendor')}
+          >
+            Vendor
+          </p>
 
           <div className="flex justify-between items-center">
             <div className="px-10">{name}</div>
@@ -46,7 +51,10 @@ export default function Layout({ children, name }) {
           >
             Add Product
           </button>
-          <button className="w-full p-5 flex justify-start  hover:bg-black font-bold hover:text-white border-b-black">
+          <button
+            className="w-full p-5 flex justify-start  hover:bg-black font-bold hover:text-white border-b-black"
+            onClick={() => router.push('/vendor/products')}
+          >
             Products List
           </button>
           <button className="w-full p-5  flex justify-start hover:bg-black font-bold hover:text-white border-b-black">

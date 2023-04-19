@@ -53,6 +53,7 @@ model Product {
   productName String
   catchyTitle String
   totalStock Int
+  vendorId Int
   color String
   size String[]
   description String
@@ -62,4 +63,8 @@ model Product {
   price Float
   tags String[]
   purchaseCount Int @default(0)
+  image String
+  slug String @unique
+
+  @@unique(fields: [id, slug], name:"product")
 }
